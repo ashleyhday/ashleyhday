@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playground</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html">Ashley Day</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects/work.html">Work</a>
+        <a href="about.html">About</a>
+        <a class="active" href="playground.html">Playground</a>
+        <a href="#">Resume</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="page-header reading">
+        <p class="kicker">Not UX (but still me)</p>
+        <h1>Playground</h1>
+        <!-- <p class="lede">Creative experiments, media lists, and whatever I'm currently obsessed with.</p> -->
+      </header>
+    </div>
+
+    <section class="fav-board">
+      <div class="fav-board__header container">
+        <div>
+          <h2>These are just some of my favorite things...</h2>
+          <p class="fav-board__subtitle">(some of my favorite books, movies, and people)</p>
+        </div>
+        <button class="fav-board__toggle" id="animToggle">Pause motion</button>
+      </div>
+      <div class="fav-board__viewport">
+        <div class="fav-board__canvas" id="boardCanvas">
+          <!-- row 1: family | aguaviva | friends2 | [espeon] | kimjiyoung | phantomthread | chessstory | mimi -->
+          <div class="board-item"                    style="--rot:-3deg; --dur:4.0s; --delay:-0.2s; --img-w:115px;"><img src="images/family.jpg"          alt="Family"></div>
+          <div class="board-item"                    style="--rot:3deg;  --dur:4.2s; --delay:-1.0s; --img-w:88px;"><img  src="images/aguaviva.jpg"         alt="Água Viva"></div>
+          <div class="board-item board-item--framed" style="--rot:4deg;  --dur:4.0s; --delay:-0.6s; --img-w:165px;"><img src="images/friends2.JPG"        alt="Friends 2"></div>
+          <div class="board-item board-item--flat"   style="--rot:3deg;  --dur:4.1s; --delay:-0.6s; --img-w:100px;"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif" alt="Espeon"></div>
+          <div class="board-item"                    style="--rot:4deg;  --dur:3.8s; --delay:-0.5s; --img-w:88px;"><img  src="images/kimjiyoung.jpg"      alt="Kim Jiyoung"></div>
+          <div class="board-item"                    style="--rot:-3deg; --dur:4.2s; --delay:-1.8s; --img-w:88px;"><img  src="images/phantomthread.jpg"   alt="Phantom Thread"></div>
+          <div class="board-item"                    style="--rot:-2deg; --dur:4.3s; --delay:-1.4s; --img-w:88px;"><img  src="images/chessstory.jpg"      alt="Chess Story"></div>
+          <div class="board-item board-item--framed" style="--rot:-5deg; --dur:4.5s; --delay:-1.1s; --img-w:165px;"><img src="images/mimi.jpg"            alt="Mimi"></div>
+          <!-- row 2: friends | crimepunish | [munchlax] | igor | cat | harrypottermovie | lotr | [ron] -->
+          <div class="board-item board-item--framed" style="--rot:-4deg; --dur:4.1s; --delay:-0.9s; --img-w:165px;"><img src="images/friends.JPG"         alt="Friends"></div>
+          <div class="board-item"                    style="--rot:-6deg; --dur:4.3s; --delay:-1.0s; --img-w:88px;"><img  src="images/crimepunish.jpg"      alt="Crime and Punishment"></div>
+          <div class="board-item board-item--flat"   style="--rot:-4deg; --dur:3.9s; --delay:-1.3s; --img-w:62px;"><img  src="https://img.pokemondb.net/sprites/black-white/anim/normal/munchlax.gif" alt="Munchlax"></div>
+          <div class="board-item"                    style="--rot:-2deg; --dur:4.4s; --delay:-1.6s; --img-w:88px;"><img  src="images/igor.jpg"             alt="IGOR — Tyler the Creator"></div>
+          <div class="board-item board-item--framed" style="--rot:-4deg; --dur:4.1s; --delay:-0.8s; --img-w:108px;"><img src="images/cat.gif"                 alt="Cat"></div>
+          <div class="board-item"                    style="--rot:-5deg; --dur:3.8s; --delay:-1.2s; --img-w:88px;"><img  src="images/harrypottermovie.jpg" alt="Harry Potter film"></div>
+          <div class="board-item"                    style="--rot:3deg;  --dur:4.2s; --delay:-0.4s; --img-w:88px;"><img  src="images/lotr.jpg"             alt="Lord of the Rings"></div>
+          <div class="board-item board-item--flat"   style="--rot:-4deg; --dur:4.2s; --delay:-1.6s; --img-w:118px;"><img src="images/ron.png"             alt="Ron"></div>
+          <!-- row 3: win | janeeyre | [pichu] | lachimera | friends3 | hobbit | friends4 -->
+          <div class="board-item board-item--framed" style="--rot:-3deg; --dur:4.2s; --delay:-1.0s; --img-w:108px;"><img src="images/win.jpg"                 alt="Win"></div>
+          <div class="board-item"                    style="--rot:3deg;  --dur:3.9s; --delay:-1.9s; --img-w:88px;"><img  src="images/janeeyre.jpg"         alt="Jane Eyre"></div>
+          <div class="board-item board-item--flat"   style="--rot:-2deg; --dur:4.4s; --delay:-0.4s; --img-w:80px;"><img  src="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif" alt="Pichu"></div>
+          <div class="board-item"                    style="--rot:3deg;  --dur:4.1s; --delay:-0.7s; --img-w:88px;"><img  src="images/lachimera.png"        alt="La Chimera"></div>
+          <div class="board-item board-item--framed" style="--rot:-4deg; --dur:3.9s; --delay:-1.5s; --img-w:165px;"><img src="images/friends3.JPG"        alt="Friends 3"></div>
+          <div class="board-item"                    style="--rot:5deg;  --dur:4.2s; --delay:-0.4s; --img-w:88px;"><img  src="images/hobbit.jpg"           alt="The Hobbit"></div>
+          <div class="board-item board-item--framed" style="--rot:2deg;  --dur:3.7s; --delay:-0.3s; --img-w:148px;"><img src="images/friends4.jpg"        alt="Friends 4"></div>
+          <!-- row 4: piplup | universal | vaultboy | rumours | friends5 | [peach] | win2 -->
+          <div class="board-item board-item--flat"   style="--rot:5deg;  --dur:3.8s; --delay:-0.5s; --img-w:128px;"><img src="images/piplup.GIF"          alt="Piplup"></div>
+          <div class="board-item board-item--flat"   style="--rot:-5deg; --dur:4.1s; --delay:-1.6s; --img-w:108px;"><img src="images/universal.png"       alt="Universal"></div>
+          <div class="board-item board-item--flat"   style="--rot:-2deg; --dur:4.3s; --delay:-1.4s; --img-w:108px;"><img src="images/vaultboy.png"        alt="Vault Boy"></div>
+          <div class="board-item"                    style="--rot:6deg;  --dur:3.7s; --delay:-0.3s; --img-w:88px;"><img  src="images/rumours.jpg"          alt="Rumours — Fleetwood Mac"></div>
+          <div class="board-item"                    style="--rot:-5deg; --dur:4.0s; --delay:-1.7s; --img-w:115px;"><img src="images/friends5.JPG"        alt="Friends 5"></div>
+          <div class="board-item board-item--flat"   style="--rot:-3deg; --dur:4.0s; --delay:-1.5s; --img-w:108px;"><img src="images/peach.png"           alt="Peach"></div>
+          <div class="board-item board-item--framed" style="--rot:4deg;  --dur:4.0s; --delay:-0.8s; --img-w:108px;"><img src="images/win2.jpg"                alt="Win 2"></div>
+          <!-- row 5: squirrel | harrypotter | [shellos] | wrinkleintime | polaroid | [breloom] | polaroid2 | frame -->
+          <div class="board-item board-item--framed" style="--rot:-2deg; --dur:3.8s; --delay:-1.1s; --img-w:108px;"><img src="images/squirrel.jpg"            alt="Squirrel"></div>
+          <div class="board-item"                    style="--rot:4deg;  --dur:4.4s; --delay:-0.8s; --img-w:88px;"><img  src="images/harrypotter.jpg"      alt="Harry Potter"></div>
+          <div class="board-item board-item--flat"   style="--rot:5deg;  --dur:4.1s; --delay:-0.6s; --img-w:62px;"><img  src="https://img.pokemondb.net/sprites/black-white/anim/normal/shellos-west.gif" alt="Shellos"></div>
+          <div class="board-item"                    style="--rot:5deg;  --dur:4.0s; --delay:-1.3s; --img-w:88px;"><img  src="images/wrinkleintime.jpg"    alt="A Wrinkle in Time"></div>
+          <div class="board-item board-item--framed" style="--rot:-3deg; --dur:4.3s; --delay:-1.2s; --img-w:150px;"><img src="images/polaroid.jpg"        alt="Polaroid"></div>
+          <div class="board-item board-item--flat"   style="--rot:3deg;  --dur:3.8s; --delay:-0.9s; --img-w:80px;"><img  src="https://img.pokemondb.net/sprites/black-white/anim/shiny/breloom.gif" alt="Breloom"></div>
+          <div class="board-item board-item--framed" style="--rot:5deg;  --dur:3.9s; --delay:-0.8s; --img-w:150px;"><img src="images/polaroid2.jpg"       alt="Polaroid 2"></div>
+          <div class="board-item board-item--flat"   style="--rot:3deg;  --dur:4.1s; --delay:-0.7s; --img-w:160px;"><img src="images/frame.png"            alt="Frame"></div>
+          <!-- row 6: miffy | [cinccino] | spiderman | [hamster] | snoopy -->
+          <div class="board-item board-item--flat"   style="--rot:4deg;  --dur:4.0s; --delay:-0.5s;"><img              src="images/miffy.png"               alt="Miffy"></div>
+          <div class="board-item board-item--flat"   style="--rot:4deg;  --dur:4.3s; --delay:-0.7s; --img-w:80px;"><img  src="https://img.pokemondb.net/sprites/black-white/anim/normal/cinccino.gif" alt="Cinccino"></div>
+          <div class="board-item board-item--flat"   style="--rot:-2deg; --dur:3.8s; --delay:-1.0s;"><img              src="images/spiderman.png"           alt="Spider-Man"></div>
+          <div class="board-item board-item--flat"   style="--rot:-2deg; --dur:4.2s; --delay:-1.1s; --img-w:56px;"><img  src="images/hamster.png"         alt="Hamster"></div>
+          <div class="board-item board-item--flat"   style="--rot:3deg;  --dur:4.1s; --delay:-0.3s;"><img              src="images/snoopy.png"              alt="Snoopy"></div>
+        </div>
+      </div>
+      <p class="fav-board__hint container">Drag to the bottom to park it.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-cta">
+        <p class="muted">Don't be a stranger!</p>
+      </div>
+      <div class="footer-links footer-links--styled">
+        <a href="mailto:ashhday@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/ashleyhday/" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var canvas    = document.getElementById('boardCanvas');
+      var toggle    = document.getElementById('animToggle');
+      var motionOn  = true;
+      var PARK_ZONE = 80;
+      var MARGIN    = 10;   // px inset from canvas edge
+
+      // Items that are allowed to slightly overlap each other
+      var STICKER_ALTS = ['Espeon','Munchlax','Pichu','Shellos','Breloom','Cinccino',
+                          'Piplup','Hamster','Ron','Spider-Man','Miffy','Snoopy','Vault Boy'];
+
+      function isSticker(item) {
+        var img = item.querySelector('img');
+        return img && STICKER_ALTS.indexOf(img.alt) !== -1;
+      }
+
+      function iw(item) {
+        return item.offsetWidth  || (parseInt(item.style.getPropertyValue('--img-w')) || 92)
+          + (item.classList.contains('board-item--framed') ? 12 : 0);
+      }
+      function ih(item) {
+        return item.offsetHeight || Math.round(iw(item) * 1.15)
+          + (item.classList.contains('board-item--framed') ? 28 : 0);
+      }
+
+      // ── Scatter: stratified random placement ────────────────────────────
+      function scatter() {
+        var items = Array.prototype.slice.call(canvas.querySelectorAll('.board-item:not(.is-parked)'));
+        var n     = items.length;
+        var cw    = canvas.clientWidth;
+
+        var totalArea = items.reduce(function (s, it) { return s + iw(it) * ih(it); }, 0);
+        var ch = Math.max(600, Math.round(totalArea / cw * 1.6));
+        canvas.style.height = ch + 'px';
+
+        // Build a grid of zones sized to the canvas aspect ratio
+        var cols = Math.round(Math.sqrt(n * cw / ch));
+        cols = Math.max(1, Math.min(cols, n));
+        var rows = Math.ceil(n / cols);
+        var zoneW = (cw - 2 * MARGIN) / cols;
+        var zoneH = (ch - 2 * MARGIN) / rows;
+
+        // Create one zone per item, shuffled so assignment is random
+        var zones = [];
+        for (var r = 0; r < rows; r++) {
+          for (var c = 0; c < cols; c++) {
+            if (zones.length < n) zones.push({ c: c, r: r });
+          }
+        }
+        for (var i = zones.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = zones[i]; zones[i] = zones[j]; zones[j] = tmp;
+        }
+
+        var placed = [];
+
+        items.forEach(function (item, idx) {
+          var w       = iw(item);
+          var h       = ih(item);
+          var sticker = isSticker(item);
+          var zone    = zones[idx];
+
+          // Random position within the zone, keeping item within canvas
+          var zx = MARGIN + zone.c * zoneW;
+          var zy = MARGIN + zone.r * zoneH;
+          var maxOffX = Math.max(0, zoneW - w);
+          var maxOffY = Math.max(0, zoneH - h);
+
+          var x, y, hit;
+
+          // Try up to 60 times within the zone; fall back to full canvas if needed
+          for (var attempt = 0; attempt < 80; attempt++) {
+            if (attempt < 60) {
+              x = zx + Math.random() * maxOffX;
+              y = zy + Math.random() * maxOffY;
+            } else {
+              // Fallback: anywhere on canvas
+              x = MARGIN + Math.random() * Math.max(0, cw - w - 2 * MARGIN);
+              y = MARGIN + Math.random() * Math.max(0, ch - h - 2 * MARGIN);
+            }
+
+            var pad = attempt < 40 ? 12 : attempt < 60 ? 4 : 0;
+            hit = false;
+            for (var pi = 0; pi < placed.length; pi++) {
+              var p   = placed[pi];
+              var gap = (sticker && p.sticker) ? 0 : pad;
+              if (x < p.x + p.w + gap && x + w + gap > p.x &&
+                  y < p.y + p.h + gap && y + h + gap > p.y) {
+                hit = true; break;
+              }
+            }
+            if (!hit) break;
+          }
+
+          x = Math.max(MARGIN, Math.min(x, cw - w - MARGIN));
+          y = Math.max(MARGIN, Math.min(y, ch - h - MARGIN));
+
+          placed.push({ x: x, y: y, w: w, h: h, sticker: sticker });
+          item.style.left = Math.round(x) + 'px';
+          item.style.top  = Math.round(y) + 'px';
+          item.style.zIndex = sticker ? 3 : 1;
+        });
+      }
+
+      // Run scatter on load at any screen size
+      window.addEventListener('load', scatter);
+
+      // ── Motion toggle ───────────────────────────────────────────────────
+      toggle.addEventListener('click', function () {
+        motionOn = !motionOn;
+        canvas.classList.toggle('no-motion', !motionOn);
+        toggle.textContent = motionOn ? 'Pause motion' : 'Resume motion';
+      });
+
+      // ── Drag & drop (desktop only) ───────────────────────────────────────
+      canvas.querySelectorAll('.board-item').forEach(function (item) {
+        var dragging = false;
+        var startMouseX, startMouseY, startLeft, startTop, lastClientY;
+
+        function onStart(clientX, clientY) {
+          dragging = true;
+          item.classList.add('is-dragging');
+          item.classList.remove('is-parked');
+          startMouseX = clientX;
+          startMouseY = clientY;
+          startLeft   = item.offsetLeft;
+          startTop    = item.offsetTop;
+        }
+
+        function onMove(clientX, clientY) {
+          if (!dragging) return;
+          lastClientY  = clientY;
+          var newLeft  = startLeft + (clientX - startMouseX);
+          var rawTop   = startTop  + (clientY  - startMouseY);
+          var H        = item.offsetHeight;
+          var borderY  = canvas.clientHeight;
+          newLeft = Math.max(0, Math.min(newLeft, canvas.clientWidth - item.offsetWidth));
+          // overshoot: px the bottom edge has gone past the border (0 = just touching)
+          var overshoot = (rawTop + H) - borderY;
+          if (overshoot > 0) {
+            // scale 1→0.3 proportional to overshoot
+            var scale    = Math.max(0.3, 1 - 0.7 * (overshoot / (H * 0.7)));
+            // keep visual bottom (transform-origin:center) pinned at border:
+            //   visual bottom = top + H/2 + H*scale/2 = borderY
+            var pinnedTop = borderY - H / 2 - (H * scale) / 2;
+            item.style.left      = newLeft + 'px';
+            item.style.top       = Math.round(pinnedTop) + 'px';
+            item.style.transform = 'scale(' + scale + ')';
+          } else {
+            var clampedTop = Math.max(0, rawTop);
+            item.style.left      = newLeft + 'px';
+            item.style.top       = clampedTop + 'px';
+            item.style.transform = '';
+          }
+        }
+
+        function onEnd() {
+          if (!dragging) return;
+          dragging = false;
+          item.classList.remove('is-dragging');
+          var H         = item.offsetHeight;
+          var rawTop    = startTop + ((lastClientY || startMouseY) - startMouseY);
+          var overshoot = (rawTop + H) - canvas.clientHeight;
+          if (overshoot > 0) {
+            item.classList.add('is-parked');
+            item.style.transform = 'scale(0.3)';
+            var pinnedTop = canvas.clientHeight - H / 2 - (H * 0.3) / 2;
+            item.style.top = Math.round(pinnedTop) + 'px';
+          } else {
+            item.style.transform = '';
+          }
+        }
+
+        item.addEventListener('mousedown', function (e) { onStart(e.clientX, e.clientY); e.preventDefault(); });
+        document.addEventListener('mousemove', function (e) { onMove(e.clientX, e.clientY); });
+        document.addEventListener('mouseup', onEnd);
+
+        item.addEventListener('touchstart', function (e) { var t = e.touches[0]; onStart(t.clientX, t.clientY); }, { passive: true });
+        document.addEventListener('touchmove', function (e) { if (!dragging) return; var t = e.touches[0]; onMove(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
+        document.addEventListener('touchend', onEnd);
+      });
+    })();
+  </script>
+</body>
+
+</html>
