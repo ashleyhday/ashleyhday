@@ -134,6 +134,16 @@
               src="images/playground/frame.png" alt="Frame"></div>
           <!-- row 6: miffy | [cinccino] | spiderman | [hamster] | snoopy -->
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.0s; --delay:-0.5s;"><img
+              src="images/miffy.png" alt="Miffy"></div>
+          <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.3s; --delay:-0.7s; --img-w:80px;"><img
+              src="https://img.pokemondb.net/sprites/black-white/anim/normal/cinccino.gif" alt="Cinccino"></div>
+          <div class="board-item board-item--flat" style="--rot:-2deg; --dur:3.8s; --delay:-1.0s;"><img
+              src="images/spiderman.png" alt="Spider-Man"></div>
+          <div class="board-item board-item--flat" style="--rot:-2deg; --dur:4.2s; --delay:-1.1s; --img-w:56px;"><img
+              src="images/hamster.png" alt="Hamster"></div>
+          <div class="board-item board-item--flat" style="--rot:3deg;  --dur:4.1s; --delay:-0.3s;"><img
+              src="images/snoopy.png" alt="Snoopy"></div>
+          <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.0s; --delay:-0.5s;"><img
               src="images/playground/miffy.png" alt="Miffy"></div>
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.3s; --delay:-0.7s; --img-w:80px;"><img
               src="https://img.pokemondb.net/sprites/black-white/anim/normal/cinccino.gif" alt="Cinccino"></div>
@@ -169,7 +179,11 @@
       var canvas = document.getElementById('boardCanvas');
       var toggle = document.getElementById('animToggle');
       var motionOn = true;
+      var canvas = document.getElementById('boardCanvas');
+      var toggle = document.getElementById('animToggle');
+      var motionOn = true;
       var PARK_ZONE = 80;
+      var MARGIN = 10;   // px inset from canvas edge
       var MARGIN = 10;   // px inset from canvas edge
 
       // Items that are allowed to slightly overlap each other
@@ -183,6 +197,7 @@
 
       function iw(item) {
         return item.offsetWidth || (parseInt(item.style.getPropertyValue('--img-w')) || 92)
+        return item.offsetWidth || (parseInt(item.style.getPropertyValue('--img-w')) || 92)
           + (item.classList.contains('board-item--framed') ? 12 : 0);
       }
       function ih(item) {
@@ -193,6 +208,8 @@
       // ── Scatter: stratified random placement ────────────────────────────
       function scatter() {
         var items = Array.prototype.slice.call(canvas.querySelectorAll('.board-item:not(.is-parked)'));
+        var n = items.length;
+        var cw = canvas.clientWidth;
         var n = items.length;
         var cw = canvas.clientWidth;
 
@@ -224,7 +241,10 @@
         items.forEach(function (item, idx) {
           var w = iw(item);
           var h = ih(item);
+          var w = iw(item);
+          var h = ih(item);
           var sticker = isSticker(item);
+          var zone = zones[idx];
           var zone = zones[idx];
 
           // Random position within the zone, keeping item within canvas
@@ -250,102 +270,119 @@
             hit = false;
             for (var pi = 0; pi < placed.length; pi++) {
               var p = placed[pi];
+              var p = placed[pi];
               var gap = (sticker && p.sticker) ? 0 : pad;
               if (x < p.x + p.w + gap && x + w + gap > p.x &&
                 y < p.y + p.h + gap && y + h + gap > p.y) {
-                hit = true; break;
-              }
-            }
-            if (!hit) break;
-          }
+                y < p.y + p.h + gap && y + h + gap > p.y) {
+          hit = true; break;
+        }
+      }
+      if (!hit) break;
+    }
 
           x = Math.max(MARGIN, Math.min(x, cw - w - MARGIN));
-          y = Math.max(MARGIN, Math.min(y, ch - h - MARGIN));
+    y = Math.max(MARGIN, Math.min(y, ch - h - MARGIN));
 
-          placed.push({ x: x, y: y, w: w, h: h, sticker: sticker });
-          item.style.left = Math.round(x) + 'px';
-          item.style.top = Math.round(y) + 'px';
-          item.style.zIndex = sticker ? 3 : 1;
+    placed.push({ x: x, y: y, w: w, h: h, sticker: sticker });
+    item.style.left = Math.round(x) + 'px';
+    item.style.top = Math.round(y) + 'px';
+    item.style.top = Math.round(y) + 'px';
+    item.style.zIndex = sticker ? 3 : 1;
         });
       }
 
-      // Run scatter on load at any screen size
-      window.addEventListener('load', scatter);
+    // Run scatter on load at any screen size
+    window.addEventListener('load', scatter);
 
-      // ── Motion toggle ───────────────────────────────────────────────────
-      toggle.addEventListener('click', function () {
-        motionOn = !motionOn;
-        canvas.classList.toggle('no-motion', !motionOn);
-        toggle.textContent = motionOn ? 'Pause motion' : 'Resume motion';
-      });
+    // ── Motion toggle ───────────────────────────────────────────────────
+    toggle.addEventListener('click', function () {
+      motionOn = !motionOn;
+      canvas.classList.toggle('no-motion', !motionOn);
+      toggle.textContent = motionOn ? 'Pause motion' : 'Resume motion';
+    });
 
-      // ── Drag & drop (desktop only) ───────────────────────────────────────
-      canvas.querySelectorAll('.board-item').forEach(function (item) {
-        var dragging = false;
-        var startMouseX, startMouseY, startLeft, startTop, lastClientY;
+    // ── Drag & drop (desktop only) ───────────────────────────────────────
+    canvas.querySelectorAll('.board-item').forEach(function (item) {
+      var dragging = false;
+      var startMouseX, startMouseY, startLeft, startTop, lastClientY;
 
-        function onStart(clientX, clientY) {
-          dragging = true;
-          item.classList.add('is-dragging');
-          item.classList.remove('is-parked');
-          startMouseX = clientX;
-          startMouseY = clientY;
-          startLeft = item.offsetLeft;
-          startTop = item.offsetTop;
+      function onStart(clientX, clientY) {
+        dragging = true;
+        item.classList.add('is-dragging');
+        item.classList.remove('is-parked');
+        startMouseX = clientX;
+        startMouseY = clientY;
+        startLeft = item.offsetLeft;
+        startTop = item.offsetTop;
+        startLeft = item.offsetLeft;
+        startTop = item.offsetTop;
+      }
+
+      function onMove(clientX, clientY) {
+        if (!dragging) return;
+        lastClientY = clientY;
+        var newLeft = startLeft + (clientX - startMouseX);
+        var rawTop = startTop + (clientY - startMouseY);
+        var H = item.offsetHeight;
+        var borderY = canvas.clientHeight;
+        lastClientY = clientY;
+        var newLeft = startLeft + (clientX - startMouseX);
+        var rawTop = startTop + (clientY - startMouseY);
+        var H = item.offsetHeight;
+        var borderY = canvas.clientHeight;
+        newLeft = Math.max(0, Math.min(newLeft, canvas.clientWidth - item.offsetWidth));
+        // overshoot: px the bottom edge has gone past the border (0 = just touching)
+        var overshoot = (rawTop + H) - borderY;
+        if (overshoot > 0) {
+          // scale 1→0.3 proportional to overshoot
+          var scale = Math.max(0.3, 1 - 0.7 * (overshoot / (H * 0.7)));
+          var scale = Math.max(0.3, 1 - 0.7 * (overshoot / (H * 0.7)));
+          // keep visual bottom (transform-origin:center) pinned at border:
+          //   visual bottom = top + H/2 + H*scale/2 = borderY
+          var pinnedTop = borderY - H / 2 - (H * scale) / 2;
+          item.style.left = newLeft + 'px';
+          item.style.top = Math.round(pinnedTop) + 'px';
+          item.style.left = newLeft + 'px';
+          item.style.top = Math.round(pinnedTop) + 'px';
+          item.style.transform = 'scale(' + scale + ')';
+        } else {
+          var clampedTop = Math.max(0, rawTop);
+          item.style.left = newLeft + 'px';
+          item.style.top = clampedTop + 'px';
+          item.style.left = newLeft + 'px';
+          item.style.top = clampedTop + 'px';
+          item.style.transform = '';
         }
-
-        function onMove(clientX, clientY) {
-          if (!dragging) return;
-          lastClientY = clientY;
-          var newLeft = startLeft + (clientX - startMouseX);
-          var rawTop = startTop + (clientY - startMouseY);
-          var H = item.offsetHeight;
-          var borderY = canvas.clientHeight;
-          newLeft = Math.max(0, Math.min(newLeft, canvas.clientWidth - item.offsetWidth));
-          // overshoot: px the bottom edge has gone past the border (0 = just touching)
-          var overshoot = (rawTop + H) - borderY;
-          if (overshoot > 0) {
-            // scale 1→0.3 proportional to overshoot
-            var scale = Math.max(0.3, 1 - 0.7 * (overshoot / (H * 0.7)));
-            // keep visual bottom (transform-origin:center) pinned at border:
-            //   visual bottom = top + H/2 + H*scale/2 = borderY
-            var pinnedTop = borderY - H / 2 - (H * scale) / 2;
-            item.style.left = newLeft + 'px';
-            item.style.top = Math.round(pinnedTop) + 'px';
-            item.style.transform = 'scale(' + scale + ')';
-          } else {
-            var clampedTop = Math.max(0, rawTop);
-            item.style.left = newLeft + 'px';
-            item.style.top = clampedTop + 'px';
-            item.style.transform = '';
-          }
+      }
+      function onEnd() {
+        if (!dragging) return;
+        dragging = false;
+        item.classList.remove('is-dragging');
+        var H = item.offsetHeight;
+        var rawTop = startTop + ((lastClientY || startMouseY) - startMouseY);
+        var H = item.offsetHeight;
+        var rawTop = startTop + ((lastClientY || startMouseY) - startMouseY);
+        var overshoot = (rawTop + H) - canvas.clientHeight;
+        if (overshoot > 0) {
+          item.classList.add('is-parked');
+          item.style.transform = 'scale(0.3)';
+          var pinnedTop = canvas.clientHeight - H / 2 - (H * 0.3) / 2;
+          item.style.top = Math.round(pinnedTop) + 'px';
+        } else {
+          item.style.transform = '';
         }
-        function onEnd() {
-          if (!dragging) return;
-          dragging = false;
-          item.classList.remove('is-dragging');
-          var H = item.offsetHeight;
-          var rawTop = startTop + ((lastClientY || startMouseY) - startMouseY);
-          var overshoot = (rawTop + H) - canvas.clientHeight;
-          if (overshoot > 0) {
-            item.classList.add('is-parked');
-            item.style.transform = 'scale(0.3)';
-            var pinnedTop = canvas.clientHeight - H / 2 - (H * 0.3) / 2;
-            item.style.top = Math.round(pinnedTop) + 'px';
-          } else {
-            item.style.transform = '';
-          }
-        }
+      }
 
-        item.addEventListener('mousedown', function (e) { onStart(e.clientX, e.clientY); e.preventDefault(); });
-        document.addEventListener('mousemove', function (e) { onMove(e.clientX, e.clientY); });
-        document.addEventListener('mouseup', onEnd);
+      item.addEventListener('mousedown', function (e) { onStart(e.clientX, e.clientY); e.preventDefault(); });
+      document.addEventListener('mousemove', function (e) { onMove(e.clientX, e.clientY); });
+      document.addEventListener('mouseup', onEnd);
 
-        item.addEventListener('touchstart', function (e) { var t = e.touches[0]; onStart(t.clientX, t.clientY); }, { passive: true });
-        document.addEventListener('touchmove', function (e) { if (!dragging) return; var t = e.touches[0]; onMove(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
-        document.addEventListener('touchend', onEnd);
-      });
-    })();
+      item.addEventListener('touchstart', function (e) { var t = e.touches[0]; onStart(t.clientX, t.clientY); }, { passive: true });
+      document.addEventListener('touchmove', function (e) { if (!dragging) return; var t = e.touches[0]; onMove(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
+      document.addEventListener('touchend', onEnd);
+    });
+    }) ();
   </script>
 </body>
 
