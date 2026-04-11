@@ -133,15 +133,15 @@
               src="images/playground/frame.png" alt="Frame"></div>
           <!-- row 6: miffy | [cinccino] | spiderman | [hamster] | snoopy -->
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.0s; --delay:-0.5s;"><img
-              src="images/miffy.png" alt="Miffy"></div>
+              src="images/playground/miffy.png" alt="Miffy"></div>
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.3s; --delay:-0.7s; --img-w:80px;"><img
               src="https://img.pokemondb.net/sprites/black-white/anim/normal/cinccino.gif" alt="Cinccino"></div>
           <div class="board-item board-item--flat" style="--rot:-2deg; --dur:3.8s; --delay:-1.0s;"><img
-              src="images/spiderman.png" alt="Spider-Man"></div>
+              src="images/playground/spiderman.png" alt="Spider-Man"></div>
           <div class="board-item board-item--flat" style="--rot:-2deg; --dur:4.2s; --delay:-1.1s; --img-w:56px;"><img
-              src="images/hamster.png" alt="Hamster"></div>
+              src="images/playground/hamster.png" alt="Hamster"></div>
           <div class="board-item board-item--flat" style="--rot:3deg;  --dur:4.1s; --delay:-0.3s;"><img
-              src="images/snoopy.png" alt="Snoopy"></div>
+              src="images/playground/snoopy.png" alt="Snoopy"></div>
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.0s; --delay:-0.5s;"><img
               src="images/playground/miffy.png" alt="Miffy"></div>
           <div class="board-item board-item--flat" style="--rot:4deg;  --dur:4.3s; --delay:-0.7s; --img-w:80px;"><img
@@ -244,7 +244,6 @@
           var h = ih(item);
           var sticker = isSticker(item);
           var zone = zones[idx];
-          var zone = zones[idx];
 
           // Random position within the zone, keeping item within canvas
           var zx = MARGIN + zone.c * zoneW;
@@ -254,7 +253,7 @@
 
           var x, y, hit;
 
-          // Try up to 60 times within the zone; fall back to full canvas if needed
+          // Try up to 80 times within the zone; fall back to full canvas if needed
           for (var attempt = 0; attempt < 80; attempt++) {
             if (attempt < 60) {
               x = zx + Math.random() * maxOffX;
@@ -269,25 +268,22 @@
             hit = false;
             for (var pi = 0; pi < placed.length; pi++) {
               var p = placed[pi];
-              var p = placed[pi];
               var gap = (sticker && p.sticker) ? 0 : pad;
               if (x < p.x + p.w + gap && x + w + gap > p.x &&
-                y < p.y + p.h + gap && y + h + gap > p.y) {
-                y < p.y + p.h + gap && y + h + gap > p.y) {
-          hit = true; break;
-        }
-      }
-      if (!hit) break;
-    }
+                  y < p.y + p.h + gap && y + h + gap > p.y) {
+                hit = true; break;
+              }
+            }
+            if (!hit) break;
+          }
 
           x = Math.max(MARGIN, Math.min(x, cw - w - MARGIN));
-    y = Math.max(MARGIN, Math.min(y, ch - h - MARGIN));
+          y = Math.max(MARGIN, Math.min(y, ch - h - MARGIN));
 
-    placed.push({ x: x, y: y, w: w, h: h, sticker: sticker });
-    item.style.left = Math.round(x) + 'px';
-    item.style.top = Math.round(y) + 'px';
-    item.style.top = Math.round(y) + 'px';
-    item.style.zIndex = sticker ? 3 : 1;
+          placed.push({ x: x, y: y, w: w, h: h, sticker: sticker });
+          item.style.left = Math.round(x) + 'px';
+          item.style.top = Math.round(y) + 'px';
+          item.style.zIndex = sticker ? 3 : 1;
         });
       }
 
