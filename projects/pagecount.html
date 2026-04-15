@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PageCount — Ashley Day</title>
+  <link rel="icon" type="image/png" href="../images/ui/favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="../index.html">Ashley Day</a>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../playground.html">Playground</a>
+        <a href="#">Resume</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <div style="max-width: 900px; margin-inline: auto;">
+      <a class="back-link" href="work.html">&#8592; Back to Work!</a>
+      <header class="page-header reading">
+        <p class="kicker">Case Study</p>
+        <h1>PageCount</h1>
+        <p class="lede">A research-driven iOS reading tracker designed for reflection, not performance.</p>
+      </header>
+
+      <div class="reading">
+        <div class="case-meta">
+          <div class="card">
+            <p class="kicker" style="margin-bottom: 4px;">Role</p>
+            <p style="margin: 0; font-size: 0.9rem;">UX Researcher and Designer</p>
+          </div>
+          <div class="card">
+            <p class="kicker" style="margin-bottom: 4px;">Timeline</p>
+            <p style="margin: 0; font-size: 0.9rem;">January 2026 – Ongoing</p>
+          </div>
+          <div class="card">
+            <p class="kicker" style="margin-bottom: 4px;">Tools</p>
+            <p style="margin: 0; font-size: 0.9rem;">Competitive Analysis · Interviews · Storyboarding · Figma</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">The challenge</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>The problem</h3>
+            <p>Many avid readers track their reading digitally, but existing tools prioritize social features and
+              reviews over personal insight. Current apps make it difficult to understand reading patterns at a glance,
+              track progress meaningfully across formats, and reflect on habits beyond simple book counts. Busy adults
+              who read across paperback, ebook, and audiobook formats are especially underserved by tools that assume
+              consistent reading conditions and low cognitive overhead.</p>
+          </div>
+          <div>
+            <h3>The gap</h3>
+            <p>Social and review-driven features dominate the market, leaving personal reflection and edition
+              flexibility largely unsupported.</p>
+          </div>
+          <div>
+            <h3>The question</h3>
+            <p>How might we support reflective, low-effort reading tracking while enabling inclusive and socially
+              supportive experiences across formats?</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Research: Competitive Analysis</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>What the market already does</h3>
+            <p>Four competitors were evaluated: Goodreads and StoryGraph as direct competitors, LibraryThing as an
+              indirect competitor, and Spotify Wrapped as an analogous reference for data visualization done well. Each
+              was assessed against five design criteria: edition-flexible tracking, meaningful visualization,
+              low-friction logging, personal insight over social comparison, and transparency of data.</p>
+          </div>
+          <div>
+            <h3>Where every app leaves room</h3>
+            <p>Goodreads offers the largest book database and familiar social features, but its data visualization is
+              limited and opaque, and edition changes often reset progress. StoryGraph improves on statistics but relies
+              on predefined visualizations that can overwhelm users. LibraryThing offers rich bibliographic metadata but
+              prioritizes data entry over insight. None of the direct competitors make reading data feel rewarding
+              rather than administrative.</p>
+          </div>
+          <div>
+            <h3>What this told me to prioritize</h3>
+            <p>Spotify Wrapped offered the clearest model for what reading data could feel like: progressive disclosure
+              of insights, visual-first summaries, and an emphasis on personal reflection over comparison. This analysis
+              clarified that the design opportunity lay in how data is presented, not how much is collected — a
+              principle that shaped every subsequent design decision.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Research: Interviews</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>Who I talked to</h3>
+            <p>Two semi-structured interviews were conducted with readers across different usage patterns and life
+              stages. The first participant was a full-time student who reads occasionally in ebook and audiobook
+              formats, primarily discovering books through BookTok. The second was a recent graduate working in tech who
+              reads regularly across physical books, audiobooks, and ebooks, fitting reading into a busy schedule rather
+              than treating it as a productivity task.</p>
+          </div>
+          <div>
+            <h3>What they told me</h3>
+            <p>Both participants described logging as something that felt motivating in theory but effortful in
+              practice. The student used reading apps mainly as a "want to read" list rather than a progress tracker,
+              motivated by social media recommendations rather than personal goals. The professional valued tracking for
+              noticing how their tastes evolved over time, but felt discouraged by comparison-heavy features like
+              streaks and public goals.</p>
+          </div>
+          <div>
+            <h3>Interview coding</h3>
+            <p>Transcripts were independently coded for recurring themes and then consolidated into four patterns:
+              frustration with high-effort logging, discomfort with performative social features, interest in personal
+              reflection over comparison, and desire for format flexibility without manual workarounds. These four
+              themes directly informed the persona development and design requirements that followed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Synthesis: Personas &amp; Scenarios</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <p class="persona-stack-hint">two persona images</p>
+
+        <div class="scenario-list">
+          <div class="scenario">
+            <h4>Scenario 1</h4>
+            <p class="muted">Coming soon.</p>
+          </div>
+          <div class="scenario">
+            <h4>Scenario 2</h4>
+            <p class="muted">Coming soon.</p>
+          </div>
+        </div>
+
+        <div class="case-grid">
+          <div>
+            <h3>Coding to patterns</h3>
+            <p>Interview codes were clustered into behavioral archetypes grounded in observed tendencies rather than
+              assumptions. Two distinct user types emerged: one oriented toward low-effort organization with no interest
+              in analytics, and one oriented toward reflective tracking with strong aversion to social pressure. These
+              patterns shaped every subsequent design decision, from navigation structure to which features were made
+              optional versus central.</p>
+          </div>
+          <div>
+            <h3>Maya</h3>
+            <p>Maya is a 21-year-old undergraduate student who reads occasionally in ebook and audiobook formats. She
+              saves books impulsively when they appear on social media and rarely tracks progress or completion. She
+              wants a simple, centralized place to store book ideas with minimal interaction required. In Goodreads, she
+              dislikes the outdated interface and performative social features; in StoryGraph, she finds the data input
+              requirements higher than she prefers.</p>
+          </div>
+          <div>
+            <h3>Alex</h3>
+            <p>Alex is a 26-year-old tech professional who reads regularly but variably depending on workload, primarily
+              in audiobook and ebook formats. He values tracking for personal insight — noticing how his tastes evolve —
+              rather than for goals or accountability. He finds streaks and public progress discouraging rather than
+              motivating. Both Goodreads and StoryGraph offer features he finds useful, but neither centers the
+              reflective, low-pressure experience he actually wants.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Design Process: Mapping &amp; Early Prototyping</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>User flows</h3>
+            <p>Before drawing any screens, core user paths were mapped: adding a book, logging a reading session, and
+              navigating to stats. This process surfaced early structural decisions — particularly around the bottom
+              navigation bar — and identified where friction was most likely to occur. Mapping flows first prevented the
+              common trap of designing individual screens in isolation before understanding how users move between them.
+            </p>
+          </div>
+          <div>
+            <h3>Paper prototype</h3>
+            <p>The flows were translated into lo-fi screens covering onboarding, bookshelf organization, and progress
+              logging. The paper prototype kept visual decisions deliberately rough so that feedback could focus on
+              structure and interaction rather than aesthetics. Eight screens were developed, covering the primary task
+              flows identified during the mapping phase and establishing the basic information architecture before any
+              digital tools were introduced.</p>
+          </div>
+          <div>
+            <h3>Feedback &amp; pivots</h3>
+            <p>Critique of the paper prototype surfaced two key issues: the app's main purpose wasn't immediately
+              legible to new users, and the navigation bar created a repetitive feel that undercut the sense of moving
+              through a coherent experience. Positive feedback centered on the customizable shelf organization and the
+              encouraging tone of the interface copy. Both findings directly shaped the wireframe structure —
+              particularly the home screen hierarchy.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Design Process: Wireframes → Low-fidelity → Hi-fidelity</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>Wireframes</h3>
+            <p>Ten annotated screens refined the interaction model before any visual treatment was applied. The home
+              screen was restructured to lead with the current read and key stats, making the app's purpose legible at a
+              glance. The library tab introduced named shelves — Want to Read, Read, School — with individual privacy
+              toggles per book. A friend activity feed was positioned below the primary content to keep the social layer
+              visible without requiring navigation away from the main view.</p>
+          </div>
+          <div>
+            <h3>Hi-fidelity prototype</h3>
+            <p>PageCount was built out in Figma with a warm terracotta visual language intended to feel personal and
+              distinct from the clinical interfaces of Goodreads and StoryGraph. Key screens include the home dashboard,
+              the library with shelf organization, a stats tab with a reading calendar, and a profile page with genre
+              tags and action buttons. The visual system aimed for cohesion across all four tabs while keeping the
+              interaction model familiar enough to require no onboarding friction.</p>
+          </div>
+          <div>
+            <h3>Remaining iterations</h3>
+            <p>Three areas were flagged for the next round of iteration. First, book cover placeholders all pull from
+              the same terracotta color family, making a full library feel undifferentiated. Second, the stats calendar
+              uses color-coded horizontal lines that do significant visual work without a legend to explain them. Third,
+              the profile page grid of book covers sits between genre tags and action buttons without a label or tap
+              destination, making it feel orphaned from the rest of the information architecture.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Usability Testing and Iteration</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <div class="case-grid">
+          <div>
+            <h3>What we tested</h3>
+            <p>Participants were walked through the core task flows using the hi-fi prototype: finding a book in the
+              library, logging a reading session, and interpreting the stats tab. Sessions focused on whether the
+              navigation structure felt intuitive and whether the visual design supported or obscured the app's primary
+              purpose — low-effort, reflective reading tracking.</p>
+          </div>
+          <div>
+            <h3>What broke and why</h3>
+            <p>The stats tab was the most consistent friction point. Without a legend, the color-coded reading calendar
+              required interpretation that interrupted the reflective experience the design was meant to support. The
+              profile page's unlabeled grid section also drew confusion — users couldn't determine whether it was
+              tappable or decorative, which undermined the overall sense of a complete, intentional interface.</p>
+          </div>
+          <div>
+            <h3>What changed as a result</h3>
+            <p>Iteration priorities were reordered based on which issues most disrupted task completion. The stats
+              legend and profile grid label moved to the top of the next design sprint. The cover placeholder
+              differentiation, while visually noticeable, created less functional friction and was deprioritized
+              accordingly. Each finding reinforced the core design principle: clarity of purpose matters more than
+              visual richness.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Final Design</p>
+        <div class="case-img-placeholder">Image placeholder</div>
+        <p style="margin-top: var(--space-md);"><a href="#" class="button">View Figma prototype</a></p>
+      </section>
+
+      <section class="case-section">
+        <p class="kicker case-section__label">Reflection</p>
+        <p class="muted">Coming soon.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-cta">
+        <p class="muted">Don't be a stranger!</p>
+      </div>
+      <div class="footer-links footer-links--styled">
+        <a href="mailto:ashhday@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/ashleyhday/" target="_blank">LinkedIn</a>
+        <a href="#">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
