@@ -32,6 +32,19 @@
 })();
 
 
+// ---------- Prototype carousel pause/grid toggle ----------
+(function () {
+  var scroll = document.getElementById('proto-scroll');
+  var btn = document.getElementById('proto-scroll-btn');
+  if (!scroll || !btn) return;
+
+  btn.addEventListener('click', function () {
+    var paused = scroll.classList.toggle('proto-scroll--paused');
+    btn.textContent = paused ? 'Resume motion' : 'Pause motion';
+  });
+})();
+
+
 // ---------- Smart header (hide on scroll down, show on scroll up) ----------
 (function () {
   var header = document.querySelector('.site-header');

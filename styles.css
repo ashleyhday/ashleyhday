@@ -1194,6 +1194,111 @@ h3 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
+.polaroid-stack--duo .polaroid[data-slot="left"] {
+  transform: translateX(calc(-50% - 110px)) rotate(-4deg);
+}
+
+.polaroid-stack--duo .polaroid[data-slot="center"] {
+  transform: translateX(calc(-50% + 110px)) rotate(2deg);
+}
+
+/* ---------- Design progression ---------- */
+.design-progression {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--space-xl);
+}
+
+.design-progression__step {
+  flex: 1;
+  min-width: 0;
+}
+
+.design-progression__step img {
+  width: 100%;
+  height: 430px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.35));
+}
+
+[data-theme="dark"] .design-progression__step img {
+  filter: none;
+}
+
+.design-progression__arrow {
+  font-size: 1.8rem;
+  color: var(--text);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ---------- Prototype marquee ---------- */
+.proto-scroll-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-sm);
+}
+
+.proto-scroll-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.proto-scroll {
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.proto-scroll__track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: proto-marquee 50s linear infinite;
+}
+
+.proto-scroll__track img {
+  height: 180px;
+  width: auto;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes proto-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.proto-scroll--paused {
+  overflow: visible;
+}
+
+.proto-scroll--paused .proto-scroll__track {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  gap: 12px;
+  animation: none;
+  transform: none;
+}
+
+.proto-scroll--paused .proto-scroll__track .proto-dupe {
+  display: none;
+}
+
+.proto-scroll--paused .proto-scroll__track img {
+  height: auto;
+  width: 100%;
+}
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
