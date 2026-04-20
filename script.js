@@ -1,3 +1,72 @@
+// ---------- Page transitions ----------
+(function () {
+  var body = document.body;
+  if (!body || !body.classList.contains('page-transition')) return;
+
+  // Build ordered list of elements to animate in
+  var targets = [];
+
+  var header = document.querySelector('.site-header');
+  if (header) targets.push(header);
+
+  var mainEl = document.querySelector('main');
+  if (mainEl) {
+    Array.from(mainEl.children).forEach(function (child) {
+      var cards = child.querySelectorAll(':scope > .project-card');
+      if (cards.length) {
+        Array.from(cards).forEach(function (c) { targets.push(c); });
+      } else {
+        targets.push(child);
+      }
+    });
+  }
+
+  var footer = document.querySelector('.site-footer');
+  if (footer) targets.push(footer);
+
+  // Assign stagger index and hide all immediately
+  targets.forEach(function (el, i) {
+    el.dataset.animIndex = i;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+  });
+
+  var loadTime = Date.now();
+
+  function animateIn(el) {
+    var elapsed = Date.now() - loadTime;
+    var delay = elapsed < 800 ? parseInt(el.dataset.animIndex || 0) * 75 : 0;
+    setTimeout(function () {
+      el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, delay);
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      animateIn(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(function (el) { observer.observe(el); });
+
+  // Fade out whole page on departure
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || link.target === '_blank') return;
+    e.preventDefault();
+    body.classList.add('page-leaving');
+    var dest = link.href;
+    setTimeout(function () { window.location.href = dest; }, 160);
+  });
+})();
+
+
 // ---------- Polaroid stack ----------
 (function () {
   var stacks = document.querySelectorAll('.polaroid-stack');
