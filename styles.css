@@ -1271,6 +1271,27 @@ h3 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
+.polaroid-stack--sm {
+  height: 500px;
+  margin-bottom: var(--space-xxl);
+}
+
+.polaroid-stack--sm .polaroid {
+  width: 420px;
+}
+
+.polaroid-stack--sm .polaroid[data-slot="left"] {
+  transform: translateX(calc(-50% - 130px)) rotate(-4deg);
+}
+
+.polaroid-stack--sm .polaroid[data-slot="center"] {
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.polaroid-stack--sm .polaroid[data-slot="right"] {
+  transform: translateX(calc(-50% + 130px)) rotate(4deg);
+}
+
 .polaroid-stack--duo .polaroid[data-slot="left"] {
   transform: translateX(calc(-50% - 110px)) rotate(-4deg);
 }
@@ -1771,6 +1792,40 @@ h3 {
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   margin-bottom: var(--space-lg);
+}
+
+.challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.challenge-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  background: var(--bg);
+}
+
+.challenge-card h3 {
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.challenge-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .challenge-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .case-rows {
