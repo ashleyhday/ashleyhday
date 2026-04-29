@@ -70,14 +70,17 @@
               consistent reading conditions and low cognitive overhead.</p>
           </div>
           <div>
-            <h3>The gap</h3>
+            <h3>The Current Landscape</h3>
             <p>Social and review-driven features dominate the market, leaving personal reflection and edition
-              flexibility largely unsupported.</p>
+              flexibility largely unsupported. Goodreads, StoryGraph, and LibraryThing each address parts of this need
+              but none center on the low-effort, reflective experience that readers across formats actually want.</p>
           </div>
           <div>
             <h3>The question</h3>
             <p>How might we support reflective, low-effort reading tracking while enabling inclusive and socially
-              supportive experiences across formats?</p>
+              supportive experiences across formats? Any solution must also consider the risks of reintroducing the
+              pressure it aims to remove; gamification features like streaks, public progress, and social comparisons
+              can quietly undermine a design built around personal reflection if not handled carefully.</p>
           </div>
         </div>
       </section>
@@ -156,36 +159,18 @@
         <div class="scenario-list">
           <div class="scenario">
             <h4>Scenario 1</h4>
-            <p>After finishing her homework for the night, Maya scrolls through TikTok to relax before bed. A creator
-              she follows shares several book recommendations related to productivity and design, and one title catches
-              her attention because it connects to a current class project. In the past, Maya would take a screenshot
-              and forget about it later, but this time she uses her reading tracking app's quick-save feature directly
-              from the social media share menu. The app automatically pulls in the book title, author, and cover,
-              allowing her to save it to her "Want to Read" list within seconds. Before closing the app, Maya tags the
-              book under "Design" and "School" so she can find it later. She doesn't feel pressured to log progress or
-              commit to reading it immediately — the app simply serves as an organized place to store ideas. A few weeks
-              later, when her schedule lightens up, she opens the app to browse her saved list and filters by
-              design-related books. Seeing the title again reminds her why she was interested in it, and she starts
-              reading the ebook that night. The app doesn't prompt her to track daily progress, which helps maintain the
-              relaxed, low-pressure role reading plays in her routine. Instead, it acts as a supportive organizational
-              tool that helps her rediscover books when she has time.</p>
+            <p>Maya discovers a book recommendation on TikTok that connects to a current class project. Using
+              PageCount's quick-save feature, she adds it to her Want to Read list in seconds — tagged under "Design"
+              and "School" — without any pressure to commit to reading it immediately. Weeks later, when her schedule
+              lightens up, she filters by tag and rediscovers the book, starting it that night.</p>
           </div>
           <div class="scenario">
             <h4>Scenario 2</h4>
-            <p>After finishing an audiobook during his commute home, Alex opens his reading tracking app to log it as
-              complete. Because he often forgets to update progress while actively reading, the app allows him to
-              quickly enter a finish date and adjust the approximate period he listened to the book. He also confirms
-              the audiobook format and adds a short note about how the book helped him stay focused during a
-              particularly busy work month. Logging takes less than a minute, which fits comfortably into his routine
-              without disrupting the enjoyment of reading.</p>
-            <p>Later that weekend, Alex revisits the app's insights section out of curiosity. He browses a timeline
-              visualization showing how his reading formats have shifted over the past year, noticing that audiobooks
-              increase during busier work periods while physical books cluster around vacations. He appreciates that
-              these visualizations are descriptive rather than comparative — they help him understand his habits without
-              suggesting he should read more or compete with others. Because he once analyzed Goodreads' visualization
-              features in a school project, he enjoys exploring how his personal reading data evolves over time. The app
-              ultimately serves as both a personal archive and a reflective data tool, supporting his interest in
-              patterns while keeping reading enjoyable and pressure-free.</p>
+            <p>After finishing an audiobook during his commute, Alex logs it as complete in under a minute — adjusting
+              the dates retroactively and adding a short note about how it helped him focus during a busy work month.
+              Later that weekend, he browses the insights tab and notices that his audiobook listening consistently
+              increases during heavier work periods, appreciating that the visualization describes his habits without
+              pressuring him to read more.</p>
           </div>
         </div>
 
@@ -274,7 +259,13 @@
               legible to new users, and the navigation bar created a repetitive feel that undercut the sense of moving
               through a coherent experience. Positive feedback centered on the customizable shelf organization and the
               encouraging tone of the interface copy. Both findings directly shaped the wireframe structure —
-              particularly the home screen hierarchy.</p>
+              particularly the home screen hierarchy. Several features present in the paper prototype were intentionally
+              scoped out of the final prototype. Real-time AI-powered stats visualization was the most significant
+              omission. The technical complexity of implementing this fell outside the scope of a course prototype, but
+              it remains the feature with the most potential to deepen the reflective experience PageCount is designed
+              around. The CSV import and export feature was also flagged during feedback as potentially working against
+              the reflective goal: downloading raw data suggests quantification rather than meaning-making, and in a
+              future iteration this feature would be reframed around insight export rather than data export.</p>
           </div>
         </div>
       </section>
@@ -374,8 +365,14 @@
             <h3>What changed as a result</h3>
             <p>Based on these findings, five issues were prioritized for the next iteration: adding a search bar to the
               main navigation, moving tags higher on the book detail page so they are visible without scrolling, adding
-              a confirmation state when books are saved to the library, and
-              moving the reading status closer to the top of the book detail page.</p>
+              a confirmation state when books are saved to the library, and moving the reading status closer to the top
+              of the book detail page. The search bar addition was the most significant structural change — and notably,
+              it did not emerge until after usability testing, which aligns with findings from "Low vs. High-Fidelity
+              Prototyping Debate" (Rudd, Stern &amp; Isensee, 1996): low-fidelity testing surfaces navigation
+              assumptions that designers overlook when working within a single screen at a time. Peer feedback from the
+              in-class demo also identified two areas for further refinement: inconsistent PageCount header sizing
+              across screens, and low contrast on active navigation bar states — both of which will be addressed in the
+              next design sprint.</p>
           </div>
         </div>
       </section>
@@ -390,7 +387,68 @@
 
       <section class="case-section">
         <p class="kicker case-section__label">Reflection</p>
-        <p class="muted">Coming soon.</p>
+        <div class="case-grid">
+          <div>
+            <h3>Design Flow</h3>
+            <p>PageCount is organized around four tabs that users can navigate in any order: Home, Library, Stats, and
+              Me. Home surfaces the currently reading book, key stats, and a friend activity feed. Library gives access
+              to named shelves — Want to Read, Currently Reading, Read, School, and Amy's Recs — each with individual
+              privacy toggles so users can control what is public versus personal. Stats houses the reading calendar,
+              insights, and data visualization. Me contains the user profile, settings, and social connections. The
+              design intentionally avoids a prescribed reading journey — users move through the app according to their
+              own habits rather than a guided flow, which supports the low-pressure, reflective experience the app is
+              built around.</p>
+          </div>
+          <div>
+            <h3>Something worth Highlighting: AI-assisted Stats Visualization</h3>
+            <p>The feature I'm most excited about is one that doesn't fully exist yet: AI-assisted stats visualization.
+              Having worked with SQL and relational data, I'm drawn to the idea of surfacing personalized reading
+              insights — not just "you read 24 books" but "your reading pace slows in October, and you tend to finish
+              books faster when they're under 300 pages." Language models could make that kind of analysis accessible
+              without requiring users to write queries. The prototype gestures toward this with the genre color legend
+              and the insights tab, but the full potential of this direction is still ahead.</p>
+          </div>
+          <div>
+            <h3>Something else worth Highlighting: Privacy</h3>
+            <p>The second is the privacy model. Every shelf in PageCount can be toggled between public and private, and
+              the social layer — friend activity, public bookshelves — is opt-in rather than default. This was a direct
+              response to what both interview participants described: a discomfort with performative reading and social
+              comparison. Making privacy a per-shelf decision rather than a global setting gives users fine-grained
+              control over what their reading means to others versus what it means to them.</p>
+          </div>
+        </div>
+        <div class="case-grid" style="margin-top: var(--space-xl);">
+          <div>
+            <h3>On the name "PageCount"</h3>
+            <p>The name implies quantification — tracking pages, measuring progress — which sits in some tension with
+              the reflective, low-pressure goal the app is designed around. In hindsight, the name emerged early in the
+              process before the core concept fully sharpened, and it carried forward by inertia. A name that centers
+              memory, habit, or personal meaning would be more aligned with what PageCount actually tries to do. This is
+              the kind of thing that's easy to overlook when you're deep in the design work, and the feedback is a
+              useful reminder that naming is a design decision too.</p>
+          </div>
+          <div>
+            <h3>Tools and Approaches</h3>
+            <p>Three tools were most critical to this project. Figma Make provided a starting point for the hi-fi
+              prototype — it generated a usable baseline quickly, but the output required significant restructuring.
+              Paper prototyping was the most generative phase of the process. Keeping visual decisions deliberately
+              rough forced feedback to stay focused on structure and flow rather than aesthetics, which surfaced the
+              navigation legibility issue early. Figma for hi-fi prototyping gave precise control over visual design
+              and interaction flows, and the overlay and variant systems enabled realistic interactions without writing
+              code.</p>
+          </div>
+          <div>
+            <h3>Impact and Ethics</h3>
+            <p>PageCount's potential impact is modest but specific: it could make reading feel more sustainable for
+              people who have complicated relationships with tracking apps. By centering personal reflection over social
+              performance, it removes one of the main reasons people abandon reading trackers — the guilt of falling
+              behind a public streak or a friend's count. The ethical considerations are worth naming honestly. Any app
+              that tracks behavior creates data, and reading data is personally revealing. PageCount's privacy model is
+              designed with this in mind, but it would require careful data governance in a real product. There is also
+              the question of whether "reflection" is measurable, and whether features like CSV export quietly
+              reintroduce the quantification they're meant to resist.</p>
+          </div>
+        </div>
       </section>
     </div>
   </main>
