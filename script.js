@@ -43,6 +43,11 @@
     }, delay);
   }
 
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { animateIn(el); });
+    return;
+  }
+
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
@@ -52,6 +57,12 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   targets.forEach(function (el) { observer.observe(el); });
+
+  setTimeout(function () {
+    targets.forEach(function (el) {
+      if (el.style.opacity === '0') animateIn(el);
+    });
+  }, 1500);
 
   // Fade out whole page on departure
   document.addEventListener('click', function (e) {
